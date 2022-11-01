@@ -64,7 +64,7 @@
         {
             try
             {
-                PostCreationDto dto = new PostCreationDto(postTitle, postBody, url);
+                PostCreationDto dto = new PostCreationDto(postTitle, postBody, url, "null", 0);
                 await postService.CreateAsync(dto);
             }
             catch (Exception e)
