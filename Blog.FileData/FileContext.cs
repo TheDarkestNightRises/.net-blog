@@ -32,7 +32,7 @@ public class FileContext
     
         if (!File.Exists(filePath))
         {
-            dataContainer = new ()
+            dataContainer = new()
             {
                 Posts = new List<Post>(),
                 Comments = new List<Comment>()
