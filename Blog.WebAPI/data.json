@@ -26,6 +26,25 @@
       "category": "string",
       "authorId": 0,
       "DateCreated": "2022-11-02T17:17:12.7047599+01:00"
+    },
+    {
+      "Id": 4,
+      "Title": "emanuel",
+      "Body": "string",
+      "Url": "string",
+      "category": "string",
+      "authorId": 0,
+      "DateCreated": "2022-11-03T01:32:35.3073092+01:00"
+    },
+    {
+      "Id": 5,
+      "Title": "postForComment",
+      "Body": "myFirstComment",
+      "Url": "string",
+      "category": "string",
+      "authorId": 0,
+      "DateCreated": "2022-11-03T01:58:49.6955982+01:00"
     }
-  ]
+  ],
+  "Comments": null
 }

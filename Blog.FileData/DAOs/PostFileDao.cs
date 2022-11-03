@@ -1,5 +1,6 @@
 ﻿using Blog.Application;
 using Blog.Shared;
+using Blog.Shared.Models;
 
 namespace Blog.FileData;
 
@@ -26,5 +27,11 @@ public class PostFileDao : IPostDao
         context.SaveChanges();
 
         return Task.FromResult(post);
+    }
+
+    public Task<Post?> GetByIdAsync(int postId)
+    {
+        Post? existing = context.Posts.FirstOrDefault(p => p.Id == postId);
+        return Task.FromResult(existing);
     }
 }
