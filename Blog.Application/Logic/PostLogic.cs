@@ -22,6 +22,21 @@ public class PostLogic : IPostLogic
         return createdDto;
     }
 
+    public async Task<List<Post>> GetAllPostsAsync()
+    {
+        return await postDao.GetAllAsync();
+    }
+
+    public async Task<Post?> GetPostAsync(string url)
+    {
+        Post? post = await postDao.GetAsync(url);
+        if (post is null)
+        {
+            throw new Exception("Post is not found");
+        }
+        return post;
+    }
+
     private void ValidateCreationDto(PostCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");

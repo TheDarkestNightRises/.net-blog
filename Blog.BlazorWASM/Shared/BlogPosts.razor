@@ -5,6 +5,10 @@
 {
     <span>Getting the blog posts...</span>
 }
+@if (Posts.Count == 0)
+{
+    <span> No posts </span>
+}
 @foreach (var post in Posts)
 {
     <div class="card my-2">
@@ -20,7 +24,7 @@
 }
 
 @code {
-    private List<Post> Posts;
+    private List<Post> Posts = new();
 
     protected override async Task OnInitializedAsync()
     {
