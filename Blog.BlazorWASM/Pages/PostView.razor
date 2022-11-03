@@ -1,0 +1,29 @@
+@page "/posts/{url}"
+@using Blog.Shared
+@inject IPostService PostService
+ 
+
+@if (currentPost == null)
+{
+    <span>Getting the blog post...</span>
+}
+else
+{
+    <h3>@currentPost.Title</h3>
+    @((MarkupString)currentPost.Body)
+                          
+}
+
+
+@code {
+    private Post? currentPost;
+
+    [Parameter]
+    public String Url { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentPost = await PostService.GetPostByUrlAsync(Url);
+    }
+
+}
