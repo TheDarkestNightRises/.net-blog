@@ -21,4 +21,9 @@ public class PostHttpClient : IPostService
             throw new Exception(content);
         }
     }
+
+    public async Task<List<Post>> GetPostsAsync()
+    {
+        return await client.GetFromJsonAsync<List<Post>>("/posts");
+    }
 }
