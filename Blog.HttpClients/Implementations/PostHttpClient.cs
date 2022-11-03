@@ -26,4 +26,15 @@ public class PostHttpClient : IPostService
     {
         return await client.GetFromJsonAsync<List<Post>>("/posts");
     }
+
+    public async Task<Post?> GetPostByUrlAsync(string url)
+    {
+        HttpResponseMessage response = await client.GetAsync($"/posts/{url}");
+        if (!response.IsSuccessStatusCode)
+        {
+            string content = await response.Content.ReadAsStringAsync();
+            throw new Exception(content);
+        }
+        return await response.Content.ReadFromJsonAsync<Post>();
+    }
 }
