@@ -17,4 +17,10 @@
       <ProjectReference Include="..\Blog.Shared\Blog.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Shared\registrationStyling.razor.css">
+        <DependentUpon>Registration.razor</DependentUpon>
+      </None>
+    </ItemGroup>
+
 </Project>
