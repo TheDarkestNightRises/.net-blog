@@ -15,7 +15,7 @@ else
     @((MarkupString)currentPost.Body)
 }
 
-<CreateComment/>
+<CreateComment CurrentPost= "@currentPost"></CreateComment>
 
 @code {
     private Post? currentPost;

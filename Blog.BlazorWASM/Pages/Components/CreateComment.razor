@@ -1,48 +1,43 @@
-﻿
-@namespace Blog.BlazorWASM.Pages.Components
+﻿@namespace Blog.BlazorWASM.Pages.Components
 @using Blog.Shared.Shared
+@using Blog.Shared
 @inject ICommentService CommentService
 
 
-    <div class="card">
-   
+<div class="card">
+    
     <div class="form-group field flex-container">
-    <input class="comment-input" type="text" placeholder="Post a comment" @bind="bodyText" @bind:event="oninput"/>
-                                                                                                       @if (!string.IsNullOrEmpty(resultMsg))
-    {
-        <label style="color: @color">@resultMsg</label>
-        }
-
+        <div class="comment-section">Comment section below</div>
+        <input class="comment-input" type="text" placeholder="Post a comment" @bind="bodyText" @bind:event="oninput"/>
         <div class="button-row">
-            <button @onclick="Create" disabled="@(string.IsNullOrEmpty(bodyText))" class="acceptbtn"><img src="../wwwroot/icons/comment.png" class="comment_img" alt="comment_icon"></button>
+            <button @onclick="Create" disabled="@(string.IsNullOrEmpty(bodyText))" class="acceptbtn">
+                <img src="icons/comment.png" class="comment_img" alt="comment_icon">
+            </button>
         </div>
     </div>
-  
+
 </div>
 
 
 @code
 {
     private string bodyText = "";
-    private string resultMsg = "";
-    private string color = "";
+    
+    [Parameter]
+    public Post CurrentPost { get; set; }
+    
 
     private async Task Create()
     {
-        resultMsg = "";
-
         try
         {
-            await CommentService.Create(new CommentCreationDto(1,1,bodyText));
+            await CommentService.Create(new CommentCreationDto(1, CurrentPost.Id, bodyText));
             bodyText = "";
-            resultMsg = "Comment successfully posted";
-            color = "green";
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            resultMsg = e.Message;
-            color = "red";
+            
         }
     }
 
