@@ -1,6 +1,8 @@
 @page "/posts/{url}"
 @using Blog.Shared
+@using Blog.BlazorWASM.Pages.Components
 @inject IPostService PostService
+
  
 
 @if (currentPost == null)
@@ -11,9 +13,9 @@ else
 {
     <h3>@currentPost.Title</h3>
     @((MarkupString)currentPost.Body)
-                          
 }
 
+<CreateComment CurrentPost= "@currentPost"></CreateComment>
 
 @code {
     private Post? currentPost;

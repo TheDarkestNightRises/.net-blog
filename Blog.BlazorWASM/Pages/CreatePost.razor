@@ -66,6 +66,8 @@
             {
                 PostCreationDto dto = new PostCreationDto(postTitle, postBody, url, "null", 0);
                 await postService.CreateAsync(dto);
+                navMgr.NavigateTo($"/posts/{dto.Url}");
+                
             }
             catch (Exception e)
             {
