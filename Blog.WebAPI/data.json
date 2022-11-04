@@ -52,6 +52,36 @@
       },
       "Text": "string",
       "DateCreated": "2022-11-03T02:34:17.7422278+01:00"
+    },
+    {
+      "Id": 2,
+      "AuthorId": 1,
+      "post": {
+        "Id": 4,
+        "Title": "finally",
+        "Body": "string",
+        "Url": "string",
+        "category": "string",
+        "authorId": 0,
+        "DateCreated": "2022-11-03T02:34:09.3315397+01:00"
+      },
+      "Text": "yup",
+      "DateCreated": "2022-11-04T00:36:12.0114494+01:00"
+    },
+    {
+      "Id": 3,
+      "AuthorId": 1,
+      "post": {
+        "Id": 4,
+        "Title": "finally",
+        "Body": "string",
+        "Url": "string",
+        "category": "string",
+        "authorId": 0,
+        "DateCreated": "2022-11-03T02:34:09.3315397+01:00"
+      },
+      "Text": "yup",
+      "DateCreated": "2022-11-04T00:36:13.8029999+01:00"
     }
   ]
 }
