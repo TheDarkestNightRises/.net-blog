@@ -143,6 +143,15 @@
       "category": "null",
       "authorId": 0,
       "DateCreated": "2022-11-04T10:54:46.3343832+01:00"
+    },
+    {
+      "Id": 17,
+      "Title": "A",
+      "Body": "A",
+      "Url": "asda",
+      "category": "null",
+      "authorId": 0,
+      "DateCreated": "2022-11-04T12:08:08.0758725+01:00"
     }
   ],
   "Comments": [
@@ -340,6 +349,21 @@
       },
       "Text": "Commen",
       "DateCreated": "2022-11-04T10:54:54.8286533+01:00"
+    },
+    {
+      "Id": 14,
+      "AuthorId": 1,
+      "post": {
+        "Id": 1,
+        "Title": "comment",
+        "Body": "string",
+        "Url": "string",
+        "category": "string",
+        "authorId": 0,
+        "DateCreated": "2022-11-03T02:33:38.4664033+01:00"
+      },
+      "Text": "Im gonna put my cod \u003E~\u003C because Emanuel Senpai told me so",
+      "DateCreated": "2022-11-04T12:10:17.0058023+01:00"
     }
   ]
 }
