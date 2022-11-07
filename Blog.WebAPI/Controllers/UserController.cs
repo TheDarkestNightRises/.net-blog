@@ -8,23 +8,23 @@ namespace Blog.WebAPI.Controllers;
 
 [Authorize]
 [ApiController]
-[Route("register")]
-public class RegistrationAPI : ControllerBase
+[Route("[controller]")]
+public class UserController : ControllerBase
 {
     private readonly RegistrInterface registrationLogic;
 
-    public RegistrationAPI(RegistrInterface registrationLogic)
+    public UserController(RegistrInterface registrationLogic)
     {
         this.registrationLogic = registrationLogic;
     }
 
     [HttpPost]
-    public async Task<ActionResult<RegisterDto>> CreateAsync([FromBody] RegisterDto dto)
+    public async Task<ActionResult<UserDto>> CreateAsync([FromBody] UserDto dto)
     {
         try
         {
-            RegisterDto createdDto = await registrationLogic.CreateAsync(dto);
-            return Created($"/register/{createdDto.Email}", createdDto);
+            UserDto createdDto = await registrationLogic.CreateAsync(dto);
+            return Created($"{$"/register/{createdDto.Id}"}", createdDto);
 
         }
         catch (Exception e)

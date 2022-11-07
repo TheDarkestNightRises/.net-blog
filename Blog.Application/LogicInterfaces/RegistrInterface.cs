@@ -4,5 +4,5 @@ namespace Blog.Application;
 
 public interface RegistrInterface
 {
-    Task<RegisterDto> CreateAsync(RegisterDto dto);
+    Task<UserDto> CreateAsync(UserDto dto);
 }

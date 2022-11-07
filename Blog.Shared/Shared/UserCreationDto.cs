@@ -2,9 +2,10 @@
 
 namespace Blog.Shared;
 
-public class RegisterDto
+public class UserDto
 {
     [Required]
+    public String Id { get; set; }
     public string FirstName { get; set; } = String.Empty;
 
     [Required]
@@ -19,8 +20,9 @@ public class RegisterDto
     [Compare("Password",ErrorMessage = "The password does not mathch!"),]
     public string ConfirmPassword { get; set; } = String.Empty;
 
-    public RegisterDto(String firstName, String lastName, String email, String password, String confirmPassword)
+    public UserDto(String id, String firstName, String lastName, String email, String password, String confirmPassword)
     {
+        Id = id;
         this.Email = email;
         this.Password = password;
         this.FirstName = firstName;

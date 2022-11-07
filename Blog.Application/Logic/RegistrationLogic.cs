@@ -9,12 +9,12 @@ public class RegistrationLogic : RegistrInterface
     {
         this.registrationDao = registrationDao;
     }
-    public Task<RegisterDto> CreateAsync(RegisterDto dto)
+    public Task<UserDto> CreateAsync(UserDto dto)
     {
         throw new NotImplementedException();
     }
     
-    private void ValidateCreationDto(RegisterDto dto)
+    private void ValidateCreationDto(UserDto dto)
     {
         if (string.IsNullOrEmpty(dto.FirstName)) throw new Exception("First name field cannot be empty.");
         if (string.IsNullOrEmpty(dto.LastName)) throw new Exception("Last name field cannot be empty.");
@@ -24,4 +24,7 @@ public class RegistrationLogic : RegistrInterface
 
 
     }
+
+
+    
 }
