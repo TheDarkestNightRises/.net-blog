@@ -1,4 +1,6 @@
-﻿namespace Blog.Shared;
+﻿using Blog.Shared.Models;
+
+namespace Blog.Shared;
 
 public class Post
 {
@@ -6,17 +8,17 @@ public class Post
     public string Title{ get; set; }
     public string Body{ get; set; }
     public string Url{ get; set; }
-    public string category { get; set; }
-    public int authorId{ get; set; }
+    public string Category { get; set; }
+    public User Author{ get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
 
-    public Post(string title, string body, string url, string category, int authorId)
+    public Post(string title, string body, string url, string category, User author)
     {
         Title = title;
         Body = body;
         Url = url;
-        this.category = category;
-        this.authorId = authorId;
+        this.Category = category;
+        this.Author = author;
     }
 
     public override string ToString()

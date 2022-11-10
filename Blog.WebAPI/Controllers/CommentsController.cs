@@ -31,5 +31,18 @@ public class CommentsController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+    [HttpGet("{url}")]
+    public  Task<ActionResult<List<Comment>>> GetAllCommentsByPostUrlAsync(string url)
+    {
+        try
+        {
+            var comments =  commentLogic.GetAllCommentsByPostUrlAsync(url);
+            return Task.FromResult<ActionResult<List<Comment>>>(Ok(comments));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return Task.FromResult<ActionResult<List<Comment>>>(StatusCode(500, e.Message));
+        }
+    }
 }

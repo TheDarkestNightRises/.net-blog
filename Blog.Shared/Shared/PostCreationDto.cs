@@ -6,15 +6,15 @@ public class PostCreationDto
     public string Body{ get; set; }
     public string Url{ get; set; }
     public string Category { get; set; }
-    public int AuthorId{ get; set; }
+    public string AuthorName{ get; set; }
 
-    public PostCreationDto(string title, string body, string url, string category, int authorId)
+    public PostCreationDto(string title, string body, string url, string category, string authorName)
     {
         Title = title;
         Body = body;
         Url = url;
         Category = category;
-        AuthorId = authorId;
+        AuthorName = authorName;
     }
 
     public override string ToString()

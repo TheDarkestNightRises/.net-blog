@@ -30,7 +30,7 @@ public class CommentLogic : ICommentLogic
         //     throw new Exception($"Current user was not found.");
         // }
         ValidateComment(dto);
-        Comment comment = new Comment(1,post,dto.Text);
+        Comment comment = new Comment(new User("trmo","", ""),post,dto.Text);
         Comment created = await commentDao.CreateAsync(comment);
         return created;
     }
@@ -45,7 +45,12 @@ public class CommentLogic : ICommentLogic
     {
         throw new NotImplementedException();
     }
-    
+
+    public async Task<IEnumerable<Comment>> GetAllCommentsByPostUrlAsync(string url)
+    {
+        return await commentDao.GetAllCommentsByPostUrlAsync(url);
+    }
+
     private void ValidateComment(CommentCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Text)) throw new Exception("Input cannot be empty.");

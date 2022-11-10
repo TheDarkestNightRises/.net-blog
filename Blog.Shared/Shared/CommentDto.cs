@@ -7,23 +7,23 @@ public class CommentDto
     //Actual user needed
     public int AuthorId{ get; set; }
     
-    public Post post{ get; set; }
+    public int postId{ get; set; }
     
     public String Text { get; set; }
     
     public DateTime DateCreated { get; set; } 
 
-    public CommentDto(int authorId, Post post, string text, DateTime dateCreated)
+    public CommentDto(int authorId, int postId, string text, DateTime dateCreated)
     {
         AuthorId = authorId;
-        this.post = post;
+        this.postId = postId;
         Text = text;
         DateCreated = dateCreated;
     }
     
     public override string ToString()
     {
-        return $"{Id} {AuthorId} {post} {Text} {DateCreated}";
+        return $"{Id} {AuthorId} {postId} {Text} {DateCreated}";
     }
 
 }
