@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using Blog.Shared;
+using Blog.Shared.Models;
 
 namespace Blog.FileData;
 
@@ -16,15 +17,35 @@ public class FileContext
             return dataContainer!.Posts;
         }
     }
+    
+    public ICollection<Comment> Comments
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Comments;
+        }
+    }
+    public ICollection<User> User
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Users;
+        }
+    }
+    
     private void LoadData()
     {
         if (dataContainer != null) return;
     
         if (!File.Exists(filePath))
         {
-            dataContainer = new ()
+            dataContainer = new()
             {
-                Posts = new List<Post>()
+                Posts = new List<Post>(),
+                Comments = new List<Comment>(),
+                Users = new List<User>()
             };
             return;
         }

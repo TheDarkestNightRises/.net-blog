@@ -7,17 +7,17 @@ public class PostDto
     public string Body{ get; set; }
     public string Url{ get; set; } 
     public string Category { get; set; }
-    public int AuthorId{ get; set; }
+    public string AuthorName{ get; set; }
     public DateTime DateCreated { get; set; }
 
-    public PostDto(int id, string title, string body, string url, string category, int authorId, DateTime dateCreated)
+    public PostDto(int id, string title, string body, string url, string category, string authorName, DateTime dateCreated)
     {
         Id = id;
         Title = title;
         Body = body;
         Url = url;
         Category = category;
-        AuthorId = authorId;
+        AuthorName = authorName;
         DateCreated = dateCreated;
     }
 

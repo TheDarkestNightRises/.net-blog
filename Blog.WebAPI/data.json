@@ -2,21 +2,33 @@
   "Posts": [
     {
       "Id": 1,
-      "Title": "SDasd",
-      "Body": "asdasfasfas",
-      "Url": "asdasd",
-      "category": "null",
-      "authorId": 0,
-      "DateCreated": "2022-11-01T21:08:39.8333942+01:00"
+      "Title": "string",
+      "Body": "string",
+      "Url": "string",
+      "Category": "string",
+      "Author": {
+        "Id": 0,
+        "Username": "string",
+        "Password": "",
+        "Email": ""
+      },
+      "DateCreated": "2022-11-10T11:45:41.4689536+01:00"
     },
     {
       "Id": 2,
-      "Title": "sdsdsd",
-      "Body": "sdasfaf",
-      "Url": "ASDFASD",
-      "category": "null",
-      "authorId": 0,
-      "DateCreated": "2022-11-01T21:36:05.8942483+01:00"
+      "Title": "string",
+      "Body": "string",
+      "Url": "string",
+      "Category": "string",
+      "Author": {
+        "Id": 0,
+        "Username": "string",
+        "Password": "",
+        "Email": ""
+      },
+      "DateCreated": "2022-11-10T11:45:45.6110169+01:00"
     }
-  ]
+  ],
+  "Comments": [],
+  "Users": []
 }
