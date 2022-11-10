@@ -29,4 +29,17 @@ public class CommentFileDao : ICommentDao
 
         return Task.FromResult(comment);
     }
+
+    public Task<IEnumerable<Comment>> GetAllCommentsByPostUrlAsync(string url)
+    {
+        IEnumerable<Comment> comments = context.Comments.AsEnumerable().Where(comment => comment.post.Url.Equals(url));
+        
+        return Task.FromResult(comments);
+    }
+
+    public Task<List<Comment>> GetAllAsync()
+    {
+        List<Comment> comments = (List<Comment>) context.Comments;
+        return Task.FromResult(comments);
+    }
 }

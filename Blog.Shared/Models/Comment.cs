@@ -5,7 +5,7 @@ public class Comment
     public int Id { get; set; }
     
     //Actual user needed
-    public int AuthorId{ get; set; }
+    public User Author{ get; set; }
     
     public Post post{ get; set; }
     
@@ -13,16 +13,16 @@ public class Comment
     
     public DateTime DateCreated { get; set; } = DateTime.Now;
 
-    public Comment(int authorId, Post post, string Text)
+    public Comment(User author, Post post, string Text)
     {
-        AuthorId = authorId;
+        Author = author;
         this.post = post;
         this.Text = Text;
     }
     
     public override string ToString()
     {
-        return $"{Id} {AuthorId} {post} {Text} {DateCreated}";
+        return $"{Id} {Author} {post} {Text} {DateCreated}";
     }
 
 }

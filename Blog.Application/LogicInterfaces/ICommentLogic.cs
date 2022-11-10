@@ -11,4 +11,5 @@ public interface ICommentLogic
     Task<IEnumerable<Comment>> GetAsync(SearchCommentParametersDto searchParameters);
     
     Task DeleteAsync(int id);
+    Task<IEnumerable<Comment>> GetAllCommentsByPostUrlAsync(string url);
 }
