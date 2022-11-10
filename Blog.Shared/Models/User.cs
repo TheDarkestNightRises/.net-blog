@@ -2,21 +2,29 @@
 
 public class User
 {
-    public String Id { get; set; } = IdRandom.GetRandomID(20);
-    public String FirstName { get; set; }
-    public String LastName { get; set; }
-    public String Email { get; set; }
-    public String Password { get; set; }
-    public String RepeatPassword { get; set; }
-
+    public int UserId { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public string Email { get; set; }
+    public string Name { get; set; }
+    public string Role { get; set; }
+    public int SecurityLevel { get; set; }
+    public User(string username, string password, string email, string name, string role, int securityLevel)
+    {
+        Username = username;
+        Password = password;
+        Email = email;
+        Name = name;
+        Role = role;
+        SecurityLevel = securityLevel;
+    }
     public User()
     {
-         
-        FirstName = String.Empty;
-        LastName = String.Empty;
-        Email = String.Empty;
-        Password = String.Empty;
-        RepeatPassword = String.Empty;
+    }
+    
+    public override string ToString()
+    {
+        return $"{UserId} {Name}";
     }
 
    
