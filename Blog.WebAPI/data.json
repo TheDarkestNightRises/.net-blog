@@ -33,6 +33,23 @@
         "SecurityLevel": 0
       },
       "DateCreated": "2022-11-10T11:45:45.6110169+01:00"
+    },
+    {
+      "Id": 3,
+      "Title": "title",
+      "Body": "body",
+      "Url": "urllllllll",
+      "Category": "null",
+      "Author": {
+        "UserId": 0,
+        "Username": "guest",
+        "Password": "",
+        "Email": "",
+        "Name": null,
+        "Role": null,
+        "SecurityLevel": 0
+      },
+      "DateCreated": "2022-11-11T14:40:21.1006427+01:00"
     }
   ],
   "Comments": [],

@@ -1,5 +1,6 @@
 ﻿@page "/CreatePost"
 @using Blog.Shared
+@using System.Security.Claims
 @inject IPostService postService
 @inject NavigationManager navMgr
 <AuthorizeView>
@@ -37,12 +38,26 @@
     private string postBody = "";
     private string url = "";
     private string msg = "";
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? name;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    
     protected override async Task OnInitializedAsync()
     {
         msg = "";
         try
         {
-            //something
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+            isLoggedIn = user.Identity != null;
+        
+            if (!isLoggedIn) return;
+        
+            userClaims = user.Claims;
+            name = user.Identity!.Name!;
         }
         catch (Exception e)
         {
@@ -73,7 +88,7 @@
         {
             try
             {
-                PostCreationDto dto = new PostCreationDto(postTitle, postBody, url, "null", "trmo");
+                PostCreationDto dto = new PostCreationDto(postTitle, postBody, url, "null", name);
                 await postService.CreateAsync(dto);
                 navMgr.NavigateTo($"/posts/{dto.Url}");
                 
