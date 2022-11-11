@@ -2,27 +2,36 @@
 @using Blog.Shared
 @inject IPostService postService
 @inject NavigationManager navMgr
-<h3>CreatePost</h3>
-<div class="form-group field">
-    <label>Title:</label>
-    <input type="text" @bind="postTitle"/>
-</div>
-<div class="form-group field">
-    <label>Post body:</label>
-    <input type="text" @bind="postBody"/>
-</div>
-<div class="form-group field">
-    <label>URL:</label>
-    <input type="text" @bind="url"/>
-</div>
+<AuthorizeView>
+    <Authorized>
+        <h3>CreatePost</h3>
+        <div class="form-group field">
+            <label>Title:</label>
+            <input type="text" @bind="postTitle"/>
+        </div>
+        <div class="form-group field">
+            <label>Post body:</label>
+            <input type="text" @bind="postBody"/>
+        </div>
+        <div class="form-group field">
+            <label>URL:</label>
+            <input type="text" @bind="url"/>
+        </div>
+        <div class="button-row">
+            @if (!string.IsNullOrEmpty(msg))
+            {
+                <label>@msg</label>
+            }
+            <button @onclick="Create" class="acceptbtn">Create</button>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <h1>Please log in to create a post</h1>
+    </NotAuthorized>
+</AuthorizeView>
 
-<div class="button-row">
-    @if (!string.IsNullOrEmpty(msg))
-    {
-        <label>@msg</label>
-    }
-    <button @onclick="Create" class="acceptbtn">Create</button>
-</div>
+
+
 @code {
     private string postTitle = "";
     private string postBody = "";
