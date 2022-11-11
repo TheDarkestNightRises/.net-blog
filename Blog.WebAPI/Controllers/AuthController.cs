@@ -36,6 +36,7 @@ public class AuthController : ControllerBase
             new Claim("DisplayName", user.Name),
             new Claim("Email", user.Email),
             new Claim("SecurityLevel", user.SecurityLevel.ToString())
+
         };
         return claims.ToList();
     }
@@ -54,7 +55,7 @@ public class AuthController : ControllerBase
             config["Jwt:Audience"],
             claims,
             null,
-            DateTime.UtcNow.AddMinutes(60));
+            DateTime.UtcNow.AddHours(1));
 
         JwtSecurityToken token = new JwtSecurityToken(header, payload);
 

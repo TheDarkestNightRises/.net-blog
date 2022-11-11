@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
@@ -6,9 +8,9 @@ using Elearn.HttpClients.Service;
 using Elearn.Shared.Dtos;
 
 
-namespace Elearn.HttpClients.Http;
+namespace BlazorWasm.Services.Http;
 
-public class JwtHttpClient : IAuthService
+public class JwtAuthService : IAuthService
 {
     private readonly HttpClient client = new ();
 
@@ -19,7 +21,6 @@ public class JwtHttpClient : IAuthService
 
     public async Task LoginAsync(UserLoginDto userLoginDto)
     {
-
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
 
@@ -33,6 +34,7 @@ public class JwtHttpClient : IAuthService
 
         string token = responseContent;
         Jwt = token;
+        Console.WriteLine(Jwt);
 
         ClaimsPrincipal principal = CreateClaimsPrincipal();
 
@@ -62,7 +64,12 @@ public class JwtHttpClient : IAuthService
         return Task.CompletedTask;
     }
 
-    public async Task RegisterAsync(UserCreationDto user)
+    public Task RegisterAsync(UserCreationDto user)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task RegisterAsync(User user)
     {
         string userAsJson = JsonSerializer.Serialize(user);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
