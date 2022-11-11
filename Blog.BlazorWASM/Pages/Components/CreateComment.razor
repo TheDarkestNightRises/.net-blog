@@ -1,6 +1,7 @@
 ﻿@namespace Blog.BlazorWASM.Pages.Components
 @using Blog.Shared.Shared
 @using Blog.Shared
+@using System.Security.Claims
 @inject ICommentService CommentService
 
 
@@ -26,7 +27,30 @@
     [Parameter]
     public Post CurrentPost { get; set; }
     
-
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? name;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+            isLoggedIn = user.Identity != null;
+        
+            if (!isLoggedIn) return;
+        
+            userClaims = user.Claims;
+            name = user.Identity!.Name!;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
     private async Task Create()
     {
         try
