@@ -7,10 +7,13 @@
       "Url": "string",
       "Category": "string",
       "Author": {
-        "Id": 0,
+        "UserId": 0,
         "Username": "string",
         "Password": "",
-        "Email": ""
+        "Email": "",
+        "Name": null,
+        "Role": null,
+        "SecurityLevel": 0
       },
       "DateCreated": "2022-11-10T11:45:41.4689536+01:00"
     },
@@ -21,14 +24,27 @@
       "Url": "string",
       "Category": "string",
       "Author": {
-        "Id": 0,
+        "UserId": 0,
         "Username": "string",
         "Password": "",
-        "Email": ""
+        "Email": "",
+        "Name": null,
+        "Role": null,
+        "SecurityLevel": 0
       },
       "DateCreated": "2022-11-10T11:45:45.6110169+01:00"
     }
   ],
   "Comments": [],
-  "Users": []
+  "Users": [
+    {
+      "UserId": 6,
+      "Username": "guest",
+      "Password": "guest",
+      "Email": "guest@yahoo.com",
+      "Name": "guest",
+      "Role": "Student",
+      "SecurityLevel": 2
+    }
+  ]
 }
