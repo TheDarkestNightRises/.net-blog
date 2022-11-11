@@ -2,13 +2,13 @@
   "Posts": [
     {
       "Id": 1,
-      "Title": "string",
-      "Body": "string",
-      "Url": "string",
-      "Category": "string",
+      "Title": "How to master your time",
+      "Body": "The secret to time management is simple: Jedi time tricks.\n\nImagine you were a Jedi master called Bob (your parents, whilst skilled in the ways of the force weren’t the best at choosing names). The love of your life – Princess Lucia – is trapped in a burning building as you hurry to save her Oliver Emberton, 2014. How to master your time. [online] Oliver Emberton. Available at: &lt;https://oliveremberton.com/2013/how-to-master-your-time/&gt; [Accessed 11 Nov. 2022]. ",
+      "Url": "time",
+      "Category": "Time management",
       "Author": {
         "UserId": 0,
-        "Username": "string",
+        "Username": "guest",
         "Password": "",
         "Email": "",
         "Name": null,
@@ -19,10 +19,10 @@
     },
     {
       "Id": 2,
-      "Title": "string",
-      "Body": "string",
-      "Url": "string",
-      "Category": "string",
+      "Title": "How This Guy Saved $100K by Age 25, Sold Everything and Traveled The World",
+      "Body": "\nHey Rich. Tell us a bit about yourself and what you do.\nHi! I’m a freelance journalist and writer, originally from New Zealand. I’ve spent the last couple of years traveling semi-permanently, writing about minimalism, saving money, and travel for various publications, and working on my own projects.\n\nWhat was your last regular job and how did you manage to leave the corporate world?\nI worked as a full-time business reporter for several years. It was a great job, but I was dying to see the world and free up time to pursue my own interests.\n\nAfter I started down the path of frugality and simple living, I managed to save up $100,000 by age 25.\n\nHitting that goal was the trigger to take what I originally thought might be a sabbatical of six months or so. Now it’s been over two years, and there’s still no end in sight! Kesarovska, L., 2022. How this guy saved $100k at 25, quit his job and traveled the world. [online] Let's Reach Success. Available at: &lt;https://letsreachsuccess.com/rich-meadows-interview/&gt; [Accessed 11 Nov. 2022]. ",
+      "Url": "rich",
+      "Category": "How to be rich like Richie Rich",
       "Author": {
         "UserId": 0,
         "Username": "string",
@@ -36,10 +36,10 @@
     },
     {
       "Id": 3,
-      "Title": "title",
-      "Body": "body",
-      "Url": "urllllllll",
-      "Category": "null",
+      "Title": "Why Procrastinators Procrastinate\n",
+      "Body": "Who would have thought that after decades of struggle with procrastination, the dictionary, of all places, would hold the solution.\n\nAvoid procrastination. So elegant in its simplicity.\n\nWhile we’re here, let’s make sure obese people avoid overeating, depressed people avoid apathy, and someone please tell beached whales that they should avoid being out of the ocean.\n\nNo, “avoid procrastination” is only good advice for fake procrastinators—those people that are like, “I totally go on Facebook a few times every day at work—I’m such a procrastinator!” The same people that will say to a real procrastinator something like, “Just don’t procrastinate and you’ll be fine.”\n\nThe thing that neither the dictionary nor fake procrastinators understand is that for a real procrastinator, procrastination isn’t optional—it’s something they don’t know how to not do.\n\nIn college, the sudden unbridled personal freedom was a disaster for me—I did nothing, ever, for any reason. The one exception was that I had to hand in papers from time to time. I would do those the night before, until I realized I could just do them through the night, and I did that until I realized I could actually start them in the early morning on the day they were due. This behavior reached caricature levels when I was unable to start writing my 90-page senior thesis until 72 hours before it was due, an experience that ended with me in the campus doctor’s office learning that lack of blood sugar was the reason my hands had gone numb and curled up against my will. (I did get the thesis in—no, it was not good.)Urban, T., 2022. Why procrastinators procrastinate. [online] Wait But Why. Available at: &lt;https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html&gt; [Accessed 11 Nov. 2022]. ",
+      "Url": "procrastinators",
+      "Category": "Procrastinators",
       "Author": {
         "UserId": 0,
         "Username": "guest",
@@ -57,7 +57,7 @@
     {
       "UserId": 6,
       "Username": "guest",
-      "Password": "guest",
+      "Password": "guest12345",
       "Email": "guest@yahoo.com",
       "Name": "guest",
       "Role": "Student",
