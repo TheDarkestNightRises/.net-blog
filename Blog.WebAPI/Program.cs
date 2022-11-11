@@ -3,6 +3,8 @@ using Blog.Application.DaoInterfaces;
 using Blog.Application.Logic;
 using Blog.FileData;
 using Blog.FileData.DAOs;
+using Elearn.Application.Logic;
+using Elearn.Application.LogicInterfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,10 @@ builder.Services.AddScoped<IPostDao, PostFileDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<ICommentDao, CommentFileDao>();
 builder.Services.AddScoped<ICommentLogic, CommentLogic>();
+builder.Services.AddScoped<IAuthLogic, AuthLogic>();
+builder.Services.AddScoped<IUserDao, UserDao>();
+
+
 
 var app = builder.Build();
 app.UseCors(x => x

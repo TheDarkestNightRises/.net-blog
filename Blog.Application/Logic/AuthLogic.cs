@@ -14,8 +14,9 @@ public class AuthLogic : IAuthLogic
 
     public async Task<User> ValidateUser(string username, string password) 
     {
+        
         User? existingUser = await userDao.GetByUsernameAsync(username);
-
+    
         if (existingUser == null) {
             throw new Exception("User not found");
         }
@@ -26,20 +27,7 @@ public class AuthLogic : IAuthLogic
 
         return existingUser;
     }
-
-    public Task RegisterUser(User user) 
-    {
-
-        if (string.IsNullOrEmpty(user.Username)) {
-            throw new ValidationException("Username cannot be null");
-        }
-
-
-        userDao.CreateAsync(user);
-
-        return Task.CompletedTask;
-    }
-
+    
     public async Task<User> RegisterUserAsync(UserCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Username))
@@ -59,7 +47,9 @@ public class AuthLogic : IAuthLogic
             throw new ValidationException("Name cannot be null");
         }
         User user = new User(dto.Username, dto.Password, dto.Email, dto.Name, dto.Role, dto.SecurityLevel);
-        User created = await userDao.CreateNewUserAsync(user);
+        User created = await userDao.CreateAsync(user);
         return created;
     }
+    
+    
 }

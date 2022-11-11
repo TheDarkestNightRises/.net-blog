@@ -83,9 +83,7 @@ public class AuthController : ControllerBase
         try
         {
             User user = await authLogic.RegisterUserAsync(dto);
-            string token = GenerateJwt(user);
-
-            return Ok(token);
+            return Ok();
         }
         catch (Exception e)
         {

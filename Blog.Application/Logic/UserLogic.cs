@@ -32,7 +32,7 @@ public class UserLogic : IUserLogic
             throw new NotImplementedException();
         }
 
-        public async Task<User> GetByIdAsync(string id) {
+        public async Task<User> GetByIdAsync(int id) {
             User? user = await userDao.GetByIdAsync(id);
             if (user != null) return user;
 
