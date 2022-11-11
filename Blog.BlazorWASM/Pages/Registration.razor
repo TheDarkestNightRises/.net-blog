@@ -3,6 +3,7 @@
 @using Elearn.Shared.Enum
 @using System.Text.RegularExpressions
 @using Elearn.HttpClients.Service
+@inject NavigationManager nvmgr
 @inject IAuthService authService
 
 
@@ -64,10 +65,10 @@
               newUser.SecurityLevel = 4;
           if (repeatPassword.Equals(newUser.Password))
               await authService.RegisterAsync(newUser);
+          nvmgr.NavigateTo("/Login");
 
       }
 
   }
 
 
-}
