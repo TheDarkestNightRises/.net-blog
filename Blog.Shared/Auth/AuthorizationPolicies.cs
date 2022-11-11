@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.Extensions.DependencyInjection;
 
 public static class AuthorizationPolicies
 {
