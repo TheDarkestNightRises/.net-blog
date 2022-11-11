@@ -45,6 +45,15 @@
       "Name": "guest",
       "Role": "Student",
       "SecurityLevel": 2
+    },
+    {
+      "UserId": 7,
+      "Username": "oriana",
+      "Password": "oriana",
+      "Email": "oriana@email.com",
+      "Name": "oriana",
+      "Role": "Student",
+      "SecurityLevel": 2
     }
   ]
 }

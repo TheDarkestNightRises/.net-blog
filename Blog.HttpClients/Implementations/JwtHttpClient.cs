@@ -12,7 +12,7 @@ namespace BlazorWasm.Services.Http;
 
 public class JwtAuthService : IAuthService
 {
-    private readonly HttpClient client = new ();
+    private readonly HttpClient client = new();
 
     // this private variable for simple caching
     public static string? Jwt { get; private set; } = "";
@@ -49,7 +49,7 @@ public class JwtAuthService : IAuthService
         }
 
         IEnumerable<Claim> claims = ParseClaimsFromJwt(Jwt);
-        
+
         ClaimsIdentity identity = new(claims, "jwt");
 
         ClaimsPrincipal principal = new(identity);
@@ -64,12 +64,7 @@ public class JwtAuthService : IAuthService
         return Task.CompletedTask;
     }
 
-    public Task RegisterAsync(UserCreationDto user)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task RegisterAsync(User user)
+    public async Task RegisterAsync(UserCreationDto user)
     {
         string userAsJson = JsonSerializer.Serialize(user);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
