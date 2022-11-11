@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Elearn.Shared.Dtos;
 
 public class UserLoginDto
@@ -12,6 +14,8 @@ public class UserLoginDto
     {
     }
 
+    [Required]
     public string Username { get; set; }
+    [Required] 
     public string Password { get; set; }
 }

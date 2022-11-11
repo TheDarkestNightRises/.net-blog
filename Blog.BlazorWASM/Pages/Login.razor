@@ -18,7 +18,7 @@
                         <h2>Login</h2>
                         <EditForm Model="@_userDto" OnValidSubmit="@OnLogin">
                             <DataAnnotationsValidator/>
-                            <ValidationSummary/>
+
 
                             <!-- Email input -->
                             <input type="username" @bind-value="@_userDto.Username" id="username" class="form-control form-control-lg"
@@ -54,6 +54,7 @@
                                     </a>
                                 </p>
                             </div>
+                            <ValidationSummary/>
                         </EditForm>
                     </div>
                 </div>
