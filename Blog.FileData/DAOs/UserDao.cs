@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Blog.Application;
 using Blog.Shared;
 
@@ -38,7 +39,8 @@ public class UserDao : IUserDao
 
     public Task<User?> GetByUsernameAsync(string userName)
     {
-        User? existing = context.User.FirstOrDefault(u => u.Name == userName);
+        User? existing = context.User.FirstOrDefault(u => u.Username == userName);
+        Console.WriteLine(existing);
         return Task.FromResult(existing);
     }
 }   

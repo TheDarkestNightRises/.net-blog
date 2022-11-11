@@ -21,10 +21,12 @@ public class AuthLogic : IAuthLogic
             throw new Exception("User not found");
         }
 
-        if (!existingUser.Equals(password)) {
+        if (!existingUser.Password.Equals(password)) {
             throw new Exception("Password mismatch");
         }
+        Console.WriteLine(existingUser);
 
+        
         return existingUser;
     }
     

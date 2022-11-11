@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -42,7 +43,7 @@ public class AuthController : ControllerBase
     private string GenerateJwt(User user)
     {
         List<Claim> claims = GenerateClaims(user);
-
+        Console.WriteLine(claims);
         SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
         SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 

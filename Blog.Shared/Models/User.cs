@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Blog.Shared;
 
 public class User
@@ -9,6 +11,7 @@ public class User
     public string Name { get; set; }
     public string Role { get; set; }
     public int SecurityLevel { get; set; }
+
     public User(string username, string password, string email, string name, string role, int securityLevel)
     {
         Username = username;
@@ -29,11 +32,10 @@ public class User
     public User()
     {
     }
-    
+
     public override string ToString()
     {
-        return $"{UserId} {Name}";
+        return $"{UserId} {Username} {Password} {Email} {Name} {Role} {SecurityLevel} ";
     }
-
-   
 }
+
