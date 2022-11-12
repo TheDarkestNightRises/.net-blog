@@ -7,9 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.9"/>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.9" PrivateAssets="all"/>
-        <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="6.0.9"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.9" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.9" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.9" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="6.0.9" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Blog.HttpClients\Blog.HttpClients.csproj" />
+      <ProjectReference Include="..\Blog.Shared\Blog.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Shared\registrationStyling.razor.css">
+        <DependentUpon>Registration.razor</DependentUpon>
+      </None>
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,108 @@
+﻿@page "/CreatePost"
+@using Blog.Shared
+@using System.Security.Claims
+@inject IPostService postService
+@inject NavigationManager navMgr
+<AuthorizeView>
+    <Authorized>
+        <h3>CreatePost</h3>
+        <div class="form-group field">
+            <label>Title:</label>
+            <input type="text" @bind="postTitle"/>
+        </div>
+        <div class="form-group field">
+            <label>Post body:</label>
+            <input type="text" @bind="postBody"/>
+        </div>
+        <div class="form-group field">
+            <label>URL:</label>
+            <input type="text" @bind="url"/>
+        </div>
+        <div class="button-row">
+            @if (!string.IsNullOrEmpty(msg))
+            {
+                <label>@msg</label>
+            }
+            <button @onclick="Create" class="acceptbtn">Create</button>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <h1>Please log in to create a post</h1>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+@code {
+    private string postTitle = "";
+    private string postBody = "";
+    private string url = "";
+    private string msg = "";
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? name;
+    private IEnumerable<Claim>? userClaims;
+    private bool isLoggedIn;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        msg = "";
+        try
+        {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+            isLoggedIn = user.Identity != null;
+        
+            if (!isLoggedIn) return;
+        
+            userClaims = user.Claims;
+            name = user.Identity!.Name!;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg = e.Message;
+        }
+    }
+    private async Task Create()
+    {
+        msg = "";
+        
+        if (string.IsNullOrEmpty(postTitle))
+        {
+            msg = "Title cannot be empty!";
+            return;
+        }
+        else if (string.IsNullOrEmpty(postBody))
+        {
+            msg = "Body cannot be empty!";
+            return;
+        }
+        else if (string.IsNullOrEmpty(url))
+        {
+            msg = "Url cannot be empty!";
+            return;
+        }
+        else
+        {
+            try
+            {
+                PostCreationDto dto = new PostCreationDto(postTitle, postBody, url, "null", name);
+                await postService.CreateAsync(dto);
+                navMgr.NavigateTo($"/posts/{dto.Url}");
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                msg = e.Message;
+            }
+        }
+    }
+
+    private void Proceed()
+    {
+        navMgr.NavigateTo("/");
+    }
+}

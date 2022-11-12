@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.FileData", "Blog.FileD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.WebAPI", "Blog.WebAPI\Blog.WebAPI.csproj", "{2D2DA497-AEA6-41F6-BE29-E2FC9D6440A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.HttpClients", "Blog.HttpClients\Blog.HttpClients.csproj", "{6C34BE4F-502D-4C25-9837-CB30FF103E87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{2D2DA497-AEA6-41F6-BE29-E2FC9D6440A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D2DA497-AEA6-41F6-BE29-E2FC9D6440A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D2DA497-AEA6-41F6-BE29-E2FC9D6440A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C34BE4F-502D-4C25-9837-CB30FF103E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C34BE4F-502D-4C25-9837-CB30FF103E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C34BE4F-502D-4C25-9837-CB30FF103E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C34BE4F-502D-4C25-9837-CB30FF103E87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

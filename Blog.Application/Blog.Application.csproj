@@ -6,4 +6,14 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Blog.Shared\Blog.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DockerContainer.ImageInformation.Provider" Version="3.0.0" />
+      <PackageReference Include="HashedWheelTimer" Version="1.0.3" />
+      <PackageReference Include="Hashids.net" Version="1.6.1" />
+    </ItemGroup>
+
 </Project>
