@@ -2,6 +2,7 @@ using System.Text;
 using Blog.Application;
 using Blog.Application.DaoInterfaces;
 using Blog.Application.Logic;
+using Blog.Data;
 using Blog.Data.DAOs;
 using Elearn.Application.Logic;
 using Elearn.Application.LogicInterfaces;
@@ -17,12 +18,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IPostDao, PostDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
-builder.Services.AddScoped<ICommentDao, CommentDao>();
 builder.Services.AddScoped<ICommentLogic, CommentLogic>();
 builder.Services.AddScoped<IAuthLogic, AuthLogic>();
+builder.Services.AddScoped<IPostDao, PostDao>();
 builder.Services.AddScoped<IUserDao, UserDao>();
+builder.Services.AddScoped<ICommentDao, CommentDao>();
+builder.Services.AddDbContext<BlogContext>();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false;
