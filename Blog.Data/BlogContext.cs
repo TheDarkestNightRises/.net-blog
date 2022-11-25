@@ -8,7 +8,7 @@ public class BlogContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source = ../EfcDataAccess/Blog.db");
+        optionsBuilder.UseSqlite("Data Source = ../Blog.Data/Blog.db");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

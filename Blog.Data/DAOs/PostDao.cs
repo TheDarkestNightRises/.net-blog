@@ -35,8 +35,7 @@ public class PostDao : IPostDao
 
     public async Task<List<Post>> GetAllAsync()
     {
-        IQueryable<Post> query = context.Posts.Include(post => post.Id).AsQueryable();
-        List<Post> result = await query.ToListAsync();
+        List<Post> result = await context.Posts.ToListAsync();
         return result;
     }
 }
