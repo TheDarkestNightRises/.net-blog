@@ -1,22 +1,34 @@
 ﻿using Blog.Application;
 using Blog.Shared;
+using Blog.Shared.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Blog.Data.DAOs;
 
 public class UserDao : IUserDao
 {
-    public Task<User> CreateAsync(User user)
+    private readonly BlogContext context;
+
+    public UserDao(BlogContext context)
     {
-        throw new NotImplementedException();
+        this.context = context;
+    }
+    public async Task<User> CreateAsync(User user)
+    {
+        EntityEntry<User> added = await context.Users.AddAsync(user);
+        await context.SaveChangesAsync();
+        return added.Entity;
     }
 
-    public Task<User?> GetByIdAsync(int id)
+    public async Task<User?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        User? found = await context.Users.FindAsync(id);
+        return found;
     }
 
-    public Task<User?> GetByUsernameAsync(string userName)
+    public async Task<User?> GetByUsernameAsync(string userName)
     {
-        throw new NotImplementedException();
+        User? found = await context.Users.FindAsync(userName);
+        return found;
     }
 }

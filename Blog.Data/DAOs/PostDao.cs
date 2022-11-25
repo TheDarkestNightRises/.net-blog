@@ -1,27 +1,42 @@
 ﻿using Blog.Application;
 using Blog.Shared;
+using Blog.Shared.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Blog.Data.DAOs;
 
 public class PostDao : IPostDao
 {
-    public Task<Post> CreateAsync(Post post)
+    private readonly BlogContext context;
+
+    public PostDao(BlogContext context)
     {
-        throw new NotImplementedException();
+        this.context = context;
+    }
+    public async Task<Post> CreateAsync(Post post)
+    {
+        EntityEntry<Post> added = await context.Posts.AddAsync(post);
+        await context.SaveChangesAsync();
+        return added.Entity;
     }
 
-    public Task<Post?> GetByIdAsync(int postId)
+    public async Task<Post?> GetByIdAsync(int postId)
     {
-        throw new NotImplementedException();
+        Post? found = await context.Posts.FindAsync(postId);
+        return found;
     }
 
-    public Task<Post?> GetAsync(string url)
+    public async Task<Post?> GetAsync(string url)
     {
-        throw new NotImplementedException();
+        Post? found = await context.Posts.FindAsync(url);
+        return found;
     }
 
-    public Task<List<Post>> GetAllAsync()
+    public async Task<List<Post>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        IQueryable<Post> query = context.Posts.Include(post => post.Id).AsQueryable();
+        List<Post> result = await query.ToListAsync();
+        return result;
     }
 }

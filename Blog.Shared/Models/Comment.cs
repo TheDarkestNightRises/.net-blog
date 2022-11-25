@@ -1,28 +1,32 @@
-﻿namespace Blog.Shared.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Blog.Shared.Models;
 
 public class Comment
 {
     public int Id { get; set; }
-    
+
     //Actual user needed
-    public User Author{ get; set; }
-    
+    public User user{ get;  set; }
+  
     public Post post{ get; set; }
     
     public string Text { get; set; }
     
     public DateTime DateCreated { get; set; } = DateTime.Now;
 
-    public Comment(User author, Post post, string Text)
+    public Comment(User User, Post Post, string Text)
     {
-        Author = author;
-        this.post = post;
+        user = User;
+        post = Post;
         this.Text = Text;
     }
     
     public override string ToString()
     {
-        return $"{Id} {Author} {post} {Text} {DateCreated}";
+        return $"{Id} {user} {post} {Text} {DateCreated}";
     }
-
+    public Comment()
+    {
+    }
 }
