@@ -23,7 +23,7 @@ public class CommentsController : ControllerBase
         try
         {
             Comment created = await commentLogic.CreateAsync(dto);
-            return Created($"/comments/{created.post.Title}/{created.Id}", created);
+            return Created($"/comments/{created.Post.Title}/{created.Id}", created);
         }
         catch (Exception e)
         {

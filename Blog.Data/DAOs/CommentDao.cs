@@ -23,7 +23,7 @@ public class CommentDao : ICommentDao
     public async Task<IEnumerable<Comment>> GetAllCommentsByPostUrlAsync(string url)
     {
         IQueryable<Comment> commentsQuery = context.Comments.AsQueryable();
-        commentsQuery = commentsQuery.Where(c => c.post.Url.Equals(url));
+        commentsQuery = commentsQuery.Where(c => c.Post.Url.Equals(url));
         IEnumerable<Comment> result = await commentsQuery.ToListAsync();
         return result;
     }
