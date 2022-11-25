@@ -18,7 +18,7 @@ public class PostLogic : IPostLogic
         ValidateCreationDto(dto);
         Post post = new Post(dto.Title, dto.Body, dto.Url, dto.Category, new User(dto.AuthorName, "", ""));
         Post created = await postDao.CreateAsync(post);
-        PostDto createdDto = new PostDto(created.Id, created.Title, created.Body, created.Url, created.Category, created.Author.Username, created.DateCreated);
+        PostDto createdDto = new PostDto(created.Id, created.Title, created.Body, created.Url, created.Category, created.User.Username, created.DateCreated);
         
         return createdDto;
     }
